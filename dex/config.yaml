@@ -1,0 +1,27 @@
+issuer: https://${DEX_DOMAIN}/dex
+
+storage:
+  type: sqlite3
+  config:
+    file: /var/dex/dex.db
+
+web:
+  http: 0.0.0.0:5556
+
+staticClients:
+  - id: outline
+    redirectURIs:
+      - "https://${DOMAIN}/auth/oidc.callback"
+    name: "Outline"
+    secret: outline-secret
+
+oauth2:
+  skipApprovalScreen: true
+
+enablePasswordDB: true
+
+staticPasswords:
+  - email: "runebone1@gmail.com"
+    hash: "$2a$10$JthcTfzcykqaQd3YIXXMtOHlfJ0WAO0rwlsUjtuOzmMSyspGCODI"
+    username: "runebone"
+    userID: "deadbeef-cafe-4abe-babe-feedfacec0de"
